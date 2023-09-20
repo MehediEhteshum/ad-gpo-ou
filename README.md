@@ -25,6 +25,7 @@ The features include -
 - [Create & setup server VM (Domain Controller)](#create--setup-server-vm-domain-controller)
 - [Create bulk users using Powershell script](#create-bulk-users-using-powershell-script)
 - [Create & setup client VM](#create--setup-client-vm)
+- [Restrict connections using GPO & OU](#restrict-connections-using-gpo--ou)
 
 <h2>Downloads</h2>
 Download virtualbox package and extension pack, windows server ISO (2019, 2022 etc.), client ISO.
@@ -111,6 +112,7 @@ Open 'Command prompt'. Run `ipconfig`, you'll see the default gateway IP is that
 
 <h2>Restrict connections using GPO & OU</h2>
 
+**Block certain websites**</br>
 Open 'AD DS users and computers'. Create a new OU where you want to implement GPO e.g. '_GPOedCLIENT'. Move the client computer to that OU.</br>
 Open 'group policy management'. Under your domain, create and link a GPO to the OU e.g. 'Block websites'. The goal of this GPO will be to restrict certain websites.
 </br>
@@ -124,3 +126,14 @@ Open a browser in the client. Check if the specified websites are blocked. For e
 
 ![Outbound rule](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20223331.png)
 ![Blocked websites](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20225135.png)
+
+</br>
+
+**Block all websites except specifics**</br>
+Unlink the last GPO from the OU. Create and link a new GPO to the OU e.g. 'Block all websites except specifics'. </br>
+The main difference with the previous one is that, under 'windows defender firewall with advanced security' properties, you need to turn on the firewall and specify 'block' for all inbound and outbound connections. Then, simply add an outbound rule that allows connections to specific websites such as google.com & openai.com.</br>
+Enforce the GPO. Open a browser in the client and check the GPO working. Only google.com & openai.com are working.
+</br>
+
+![Firewall properties](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-19%20223510.png)
+![Blocked all except specific](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-19%20001443.png)
