@@ -68,3 +68,14 @@ Now the user will have the global admin privilege. You can now login to the serv
 Next, let's setup RAS / NAT. Open 'routing and remote access'. Right-click on DC and 'configure & enable RAS'. Then, pick 'NAT' option to allow internal clients to connect to the internet using one public IP address that is of 'INTERNET' NIC. Then pick the 'INTERNET' NIC as the public interface to the internet.</br>
 
 ![RAS setup](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20173247.png)
+
+Now, we will setup the DHCP server.</br>
+Open 'DHCP'. Expand the server name, and add a 'New Scope' on IPv4. Enter the IP address range as shown in the architecture diagram. Add your 'INTERNAL' NIC IP as the router (default gateway). Then on the next page, DNS server will also be the same NIC. Finish the DHCP setup.</br>
+Now, you will have a DHCP setup as shown in the picture. If you check the 'Address leases', the list is empty. Because we have not domain joined any client device yet.
+</br>
+
+![DHCP](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20173915.png)
+
+CONGRATULATIONS! Your domain controller setup is now complete.</br>
+Next we will create users in bulk using a Powershell script.
+
