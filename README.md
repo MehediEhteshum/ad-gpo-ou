@@ -44,3 +44,27 @@ Rename the PC as 'DC'. Next, we will setup the VM as a domain controller.
 </br>
 
 ![NICs](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20154140.png)
+
+Open server manager. Add a few server roles - `Active Directory Domain Services`, `DHCP Server`, `Remote Access` with 'routing' feature enabled.</br>
+Once they are installed, start with 'AD DS' configuration. Click on the notification that says 'promote this server to a domain controller'. 
+</br>
+
+![Server roles](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20161028.png)
+
+Now, 'AD DS configuration wizard' will pop up. Here, pick 'add a new forest' and enter your desired domain name e.g. `ad-lab.com`. Go ahead and install the AD DS server.</br>
+If you want to log out and log back in to your server, you'll notice that you'll be log in to 'AD-LAB'.
+</br>
+
+![Domain setup](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20170637.png)
+
+Now that your AD DS server is ready, open 'AD users and computers'. Right click on 'ad-lab.com', then 'New > Organizational Unit' to create a new OU.</br>
+Right click on the OU and create a new user e.g. 'Mehedi Ehtehum'. This user is not an admin yet. Go to user 'properties > Member of', and add 'Domain Admins' group to the user.
+Now the user will have the global admin privilege. You can now login to the server as this Admin via 'Other user' option on the login screen as shown in the image.
+</br>
+
+![Admin user](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20172316.png)
+![Login as Admin](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20172757.png)
+
+Next, let's setup RAS / NAT. Open 'routing and remote access'. Right-click on DC and 'configure & enable RAS'. Then, pick 'NAT' option to allow internal clients to connect to the internet using one public IP address that is of 'INTERNET' NIC. Then pick the 'INTERNET' NIC as the public interface to the internet.</br>
+
+![RAS setup](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20173247.png)
