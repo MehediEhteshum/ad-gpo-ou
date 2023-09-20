@@ -22,7 +22,7 @@ The features include -
 <h2>Index</h2>
 
 - [Downloads](#downloads)
-- link2
+- [Create & setup server VM (Domain Controller)](#create--setup-server-vm-domain-controller)
 - 
 <h2>Downloads</h2>
 Download virtualbox package and extension pack, windows server ISO (2019, 2022 etc.), client ISO.
