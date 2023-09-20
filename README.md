@@ -108,3 +108,19 @@ Open 'Command prompt'. Run `ipconfig`, you'll see the default gateway IP is that
 </br>
 
 ![Connection check](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20210023.png)
+
+<h2>Restrict connections using GPO & OU</h2>
+
+Open 'AD DS users and computers'. Create a new OU where you want to implement GPO e.g. '_GPOedCLIENT'. Move the client computer to that OU.</br>
+Open 'group policy management'. Under your domain, create and link a GPO to the OU e.g. 'Block websites'. The goal of this GPO will be to restrict certain websites.
+</br>
+
+![GPO to block websites](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20223151.png)
+
+Right click the GPO and edit. Under the `computer config > windows settings > security settings > windows defender firewall with advanced security`, add an outbound rule that blocks certain websites IP address that you specified in the rule.</br>
+To enforce the GPO immediately, run command `gpupdate /force` in both server and client, or restart the client.</br>
+Open a browser in the client. Check if the specified websites are blocked. For example, in the picture Facebook, TikTok, Instagram are not working as their IP addresses are blocked, but Google and Youtube are working.
+</br>
+
+![Outbound rule](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20223331.png)
+![Blocked websites](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20225135.png)
