@@ -23,7 +23,7 @@ The features include -
 
 - [Downloads](#downloads)
 - [Create & setup server VM (Domain Controller)](#create--setup-server-vm-domain-controller)
-- [Create bulk users using Powershell script](#downloads)
+- [Create bulk users using Powershell script](#create-bulk-users-using-powershell-script)
 - 
 <h2>Downloads</h2>
 Download virtualbox package and extension pack, windows server ISO (2019, 2022 etc.), client ISO.
