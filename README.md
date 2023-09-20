@@ -4,7 +4,7 @@
 This project demonstrates many basic to advanced usages of domain controller, active directory (AD), Powershell scripting & group policy object (GPO).
 </br></br>
 
-`(Click the schematic diagram to see it on Figma)`
+`(Click the system architecture schematic below to see it on Figma)`
 
 [![Schematic](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-19%20172551.png)](https://www.figma.com/file/rFRTPwspiE9JIS8MRxIHc1/Windows-Domain-Controller-(Active-Directory-DS)-Schematic?type=whiteboard&node-id=0%3A1&t=cPZLwiZedmpp0mul-1)
 
@@ -38,3 +38,9 @@ Then, double-click on the VM. Pick the server ISO that was downloaded when promp
 </br></br>
 
 ![DC VM](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-17%20235927.png)
+
+Once the VM is started, go to 'network connections' and rename the 2 NICs appropriately for better identification as shown in the picture. Setup the internal NIC with IP address, subnet mask & DNS server IP (basically it is referring to its ownself i.e. loop-back address) as shown in the picture.</br>
+Rename the PC as 'DC'. Next, we will setup the VM as a domain controller.
+</br>
+
+![NICs](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20154140.png)
