@@ -17,7 +17,7 @@ The features include -
 - Create bulk users using Powershell script
 - Domain join the client VM
 - Check connections from client VM
-- Create & implement security rules in the domain controller to restrict client VM connections using GPO
+- Create & implement security rules in the domain controller to restrict client VM connections using GPO and Organizational Unit (OU)
 
 <h2>Index</h2>
 
@@ -35,7 +35,7 @@ Download virtualbox package and extension pack, windows server ISO (2019, 2022 e
 
 <h2>Create & setup server VM (Domain Controller)</h2>
 After installing VirtualBox, add a new VM. To set it up as a DC, pick 'Other Windows (64-bit)' as OS version. When the VM is created, go to its settings, enable adapter2 as 'internal network', so that the client machines in the VirtualBox's internal network can use this NIC as a gateway later. Adapter1 will remain as 'NAT' to be able to communicate with the internet. The system specs can be 2GB RAM, 20GB storage, 2-core processor.</br>
-Then, double-click on the VM. Pick the server ISO that was downloaded when prompted. Setup the server with 'server standard evaluation (desktop experience)' to utilize the desktop GUI. The other settings should be default.
+Then, double-click on the VM. Pick the server OS ISO, that was downloaded, when prompted. Setup the server with 'server standard evaluation (desktop experience)' to utilize the desktop GUI. The other settings should be default.
 </br></br>
 
 ![DC VM](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-17%20235927.png)
@@ -87,3 +87,17 @@ If you now open 'AD users and computers', you'll see the users under the '_EMPLO
 </br>
 
 ![Bulk users](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20175949.png)
+
+<h2>Create & setup client VM</h2>
+
+Create the client VM similar to the server VM creation. Add a new VM. To set it up as a client, pick 'Windows 11 (64-bit)' as OS version. When the VM is created, go to its settings, change 'Adapter1' attachment to 'Internal Network' to not be able to communicate with the internet directly, but via DC 'INTERNAL' NIC. The system specs can be 4GB RAM, 80GB storage, 2-core processor.</br>
+Then, double-click on the VM. Pick the client OS ISO, that was downloaded, when prompted. Setup the client with 'windows11 pro'. The other settings should be default.
+</br>
+
+![Client PC setup](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20190845.png)
+
+Once your client PC is ready, open system properties and change its name to e.g. 'Client1' as well as, most importantly, domain join the PC to `ad-lab.com` as shown in the picture.</br>
+Now you'll be able to login to the client PC as any of the AD users (as shown).</br>
+
+![Domain join client](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20204835.png)
+![Login to client as AD user](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20205458.png)
