@@ -23,6 +23,7 @@ The features include -
 
 - [Downloads](#downloads)
 - [Create & setup server VM (Domain Controller)](#create--setup-server-vm-domain-controller)
+- [Create bulk users using Powershell script](#downloads)
 - 
 <h2>Downloads</h2>
 Download virtualbox package and extension pack, windows server ISO (2019, 2022 etc.), client ISO.
@@ -79,3 +80,10 @@ Now, you will have a DHCP setup as shown in the picture. If you check the 'Addre
 CONGRATULATIONS! Your domain controller setup is now complete.</br>
 Next we will create users in bulk using a Powershell script.
 
+<h2>Create bulk users using Powershell script</h2>
+
+Download the `CREATE_USERS.ps1` script. Open Powershell ISE 'as admin'. Run command `Set-ExecutionPolicy Unrestricted` for ease (not recommended for a production setup), cd into the script folder and run.</br>
+If you now open 'AD users and computers', you'll see the users under the '_EMPLOYEES' OU.
+</br>
+
+![Bulk users](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-18%20175949.png)
