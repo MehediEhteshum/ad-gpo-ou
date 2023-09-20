@@ -148,5 +148,7 @@ Now the client browser will resolve the website as localhost, so basically the w
 
 <h2>Support</h2>
 
-☕☕☕ If this project helps you understand the concepts around the topic, please consider buying me a coffee ☕☕☕
+☕☕☕ If this project helps you understand the concepts around the topic, please consider buying me a coffee
+<br>
+☕☕☕
 <a href="https://coindrop.to/mehedi_ehteshum" target="_blank"><img src="https://coindrop.to/embed-button.png" style="border-radius: 10px; height: 57px !important;width: 229px !important;" alt="Coindrop.to me"></img></a>
