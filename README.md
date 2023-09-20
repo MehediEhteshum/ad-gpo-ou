@@ -26,6 +26,7 @@ The features include -
 - [Create bulk users using Powershell script](#create-bulk-users-using-powershell-script)
 - [Create & setup client VM](#create--setup-client-vm)
 - [Restrict connections using GPO & OU](#restrict-connections-using-gpo--ou)
+- [Support](#support)
 
 <h2>Downloads</h2>
 Download virtualbox package and extension pack, windows server ISO (2019, 2022 etc.), client ISO.
@@ -137,3 +138,15 @@ Enforce the GPO. Open a browser in the client and check the GPO working. Only go
 
 ![Firewall properties](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-19%20223510.png)
 ![Blocked all except specific](https://github.com/MehediEhteshum/adds-gpo/blob/main/screenshots/Screenshot%202023-09-19%20001443.png)
+
+</br>
+
+**Bonus Tip**</br>
+If you want to restrict any website company wide, you can simply use its FQDN to block it.</br>
+Open DNS manager in the server. Create a new DNS zone for 'forward looking zone' using the FQDN of the website. Then create a new host (A/AAAA) for this DNS zone with an IP address of 0.0.0.0 or 127.0.0.1.</br>
+Now the client browser will resolve the website as localhost, so basically the website will not work anymore company wide.
+
+<h2>Support</h2>
+
+☕☕☕ If this project helps you understand the concepts around the topic, please consider buying me a coffee ☕☕☕
+<a href="https://coindrop.to/mehedi_ehteshum" target="_blank"><img src="https://coindrop.to/embed-button.png" style="border-radius: 10px; height: 57px !important;width: 229px !important;" alt="Coindrop.to me"></img></a>
